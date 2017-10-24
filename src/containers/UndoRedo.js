@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 
 let UndoRedo = ({ canUndo, canRedo, onUndo, onRedo }) => (
   <p>
-    <button onClick={onUndo} disabled={!canUndo}>
-      Undo
-    </button>
-    <button onClick={onRedo} disabled={!canRedo}>
-      Redo
+    <button className="btn btn-default" onClick={onUndo} disabled={!canUndo}>
+      <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Undo
+    </button>&nbsp;
+    <button className="btn btn-default" onClick={onRedo} disabled={!canRedo}>
+      Redo <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
     </button>
   </p>
 )
