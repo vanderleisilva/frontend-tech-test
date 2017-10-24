@@ -2,18 +2,23 @@
   "name": "test-candidates",
   "version": "0.0.1",
   "description": "test back - front",
-  "main": "server.js",
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "1.0.14",
+    "express": "^4.14.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "server": "node server.js"
   },
   "keywords": [
     "test",
     "travix"
   ],
-  "author": "spartans",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.14.0"
-  }
+  "author": "spartan Vanderlei Silva"
 }
