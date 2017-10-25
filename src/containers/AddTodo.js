@@ -6,6 +6,11 @@ import axios from 'axios'
 let AddTodo = ({ dispatch }) => {
   let title, description
 
+  axios.get('http://localhost:9001/tasks')
+  .then(response => {
+    response.data.tasks.forEach(i => {dispatch(addTodo(i.title, i.description))});
+  })
+
   let onSubmit = e => {
     e.preventDefault()
     if (!title.value.trim()) {
