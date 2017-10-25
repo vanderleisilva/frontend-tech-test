@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "test back - front",
   "dependencies": {
+    "axios": "^0.17.0",
     "bootstrap": "^3.3.7",
     "express": "^4.14.0",
     "react": "^16.0.0",
