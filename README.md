@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/vanderleisilva/frontend-tech-test.svg?branch=master)](https://travis-ci.org/vanderleisilva/frontend-tech-test)
+
 # Travix test
 
 Travix Front-End Tech Interview Test 
