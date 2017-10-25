@@ -12,6 +12,11 @@ const Todo = ({ onClick, completed, title, description }) => (
       {title}
     </td>
     <td>{description}</td>
+    <td width="10">
+      <button type="button" title="remove task" className="btn btn-sm btn-danger">
+        <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </button>
+    </td>
   </tr>
 )
 

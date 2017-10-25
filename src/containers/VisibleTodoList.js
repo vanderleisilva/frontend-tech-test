@@ -23,9 +23,7 @@ const mapDispatchToProps = ({
   onTodoClick: toggleTodo
 })
 
-const VisibleTodoList = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(TodoList)
-
-export default VisibleTodoList
