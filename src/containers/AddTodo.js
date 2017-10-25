@@ -1,21 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
+import axios from 'axios'
 
 let AddTodo = ({ dispatch }) => {
   let title, description
 
+  let onSubmit = e => {
+    e.preventDefault()
+    if (!title.value.trim()) {
+      return
+    }
+
+    axios.post('http://localhost:9001/task/create', { 
+      title: title.value, 
+      description: description.value 
+    })
+    .then(response => {
+      dispatch(addTodo(title.value, description.value))
+      title.value = ''
+      description.value = ''
+    })
+  }
+
   return (
     <div className="row">
-      <form onSubmit={e => {
-        e.preventDefault()
-        if (!title.value.trim()) {
-          return
-        }
-        dispatch(addTodo(title.value, description.value))
-        title.value = ''
-        description.value = ''
-      }}>
+      <form onSubmit={onSubmit}>
         <div className="col-sm-5 col-lg-3 form-group">
           <input className="form-control" placeholder="Title" ref={node => {
             title = node
