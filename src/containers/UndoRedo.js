@@ -23,6 +23,8 @@ const mapDispatchToProps = ({
   onRedo: UndoActionCreators.redo
 })
 
+export { UndoRedo }
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
