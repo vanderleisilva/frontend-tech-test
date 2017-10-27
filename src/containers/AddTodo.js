@@ -18,7 +18,7 @@ let AddTodo = ({ dispatch }) => {
       return
     }
 
-    axios.post(`${apiUrl}create`, { 
+    axios.post(`${apiUrl}task/create`, { 
       title: title.value, 
       description: description.value 
     })
