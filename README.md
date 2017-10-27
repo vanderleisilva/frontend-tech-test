@@ -4,6 +4,10 @@
 
 Travix Front-End Tech Interview Test 
 
+# Live demo
+
+For a live preview [click here](https://travix-tech-test.herokuapp.com/)
+
 # Introduction
 
 The aim of the test is to develop a mini-application for managing TODO tasks.

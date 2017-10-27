@@ -1,1 +1,1 @@
-export const apiUrl = process.env.apiUrl || 'http://localhost:9001/';
+export const apiUrl = 'https://travix-tech-test.herokuapp.com/';
