@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
+import { apiUrl } from '../constants'
 import axios from 'axios'
 
 let AddTodo = ({ dispatch }) => {
   let title, description
 
-  axios.get('http://localhost:9001/tasks')
+  axios.get(`${apiUrl}tasks`)
   .then(response => {
     response.data.tasks.forEach(i => {dispatch(addTodo(i.title, i.description))});
   })
@@ -17,7 +18,7 @@ let AddTodo = ({ dispatch }) => {
       return
     }
 
-    axios.post('http://localhost:9001/task/create', { 
+    axios.post(`${apiUrl}create`, { 
       title: title.value, 
       description: description.value 
     })

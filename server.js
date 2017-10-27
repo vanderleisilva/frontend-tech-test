@@ -8,7 +8,7 @@ const fs = require('fs');
  * Enable CORs
  * 
  */
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
@@ -148,6 +148,23 @@ app.delete('/task/delete/:id', (req, res) => {
   }
 });
 
-app.listen(9001, () => {
-  process.stdout.write('the server is available on http://localhost:9001/\n');
+/**
+ * 
+ * Serve the frontend generated files.
+ */
+app.get('*', (request, response, next) => {
+  let path = __dirname + '/build' + request.url;
+
+  if(fs.existsSync(path)){
+    response.sendFile(path);
+    return; 
+  }
+
+  response.sendFile(__dirname + '/build/index.html');
+});
+
+let port = process.env.PORT || 9001;
+
+app.listen(port, () => {
+  process.stdout.write(`the server is available on http://localhost:${port}/\n`);
 });
