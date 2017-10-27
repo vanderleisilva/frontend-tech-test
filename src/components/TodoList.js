@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
 
-const TodoList = ({ todos, onTodoClick }) => (
+const TodoList = ({ todos, onRowClick, onRemoveClick }) => (
   <div className="row">
     <div className="col-lg-6">
       <table className="table table-hover">
@@ -11,7 +11,8 @@ const TodoList = ({ todos, onTodoClick }) => (
           <Todo
             key={todo.id}
             {...todo}
-            onClick={() => onTodoClick(todo.id)}
+            onRowClick={() => onRowClick(todo.id)}
+            onRemoveClick={() => onRemoveClick(todo.id)}
           />
         )}
         </tbody>
@@ -27,7 +28,8 @@ TodoList.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
   }).isRequired).isRequired,
-  onTodoClick: PropTypes.func.isRequired
+  onRowClick: PropTypes.func.isRequired,
+  onRemoveClick: PropTypes.func.isRequired
 }
 
 export default TodoList

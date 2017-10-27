@@ -1,19 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Todo = ({ onClick, completed, title, description }) => (
-  <tr
-    onClick={onClick}
+const Todo = ({ onRowClick, onRemoveClick, completed, title, description }) => (
+  <tr    
       style={{
         textDecoration: completed ? 'line-through' : 'none'
       }}
   >
-    <td>
+    <td onClick={onRowClick} >
       {title}
     </td>
-    <td>{description}</td>
+    <td onClick={onRowClick} >{description}</td>
     <td width="10">
-      <button type="button" title="remove task" className="btn btn-sm btn-danger">
+      <button onClick={onRemoveClick} type="button" title="remove task" className="btn btn-sm btn-danger">
         <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
       </button>
     </td>
@@ -21,7 +20,8 @@ const Todo = ({ onClick, completed, title, description }) => (
 )
 
 Todo.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onRowClick: PropTypes.func.isRequired,
+  onRemoveClick: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired
