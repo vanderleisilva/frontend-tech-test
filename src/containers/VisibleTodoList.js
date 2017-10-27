@@ -1,6 +1,8 @@
 import { connect } from 'react-redux'
 import { toggleTodo, removeTodo } from '../actions'
 import TodoList from '../components/TodoList'
+import { apiUrl } from '../constants'
+import axios from 'axios'
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
@@ -21,7 +23,11 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = ({
   onRowClick: toggleTodo,
-  onRemoveClick: removeTodo
+  onRemoveClick: id => {
+    axios.delete(`${apiUrl}task/delete/${id}`)
+
+    return removeTodo(id);
+  }
 })
 
 export default connect(
